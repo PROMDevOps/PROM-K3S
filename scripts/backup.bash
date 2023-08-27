@@ -15,7 +15,7 @@ PG_PASSWORD=${!PG_ENV_PASSWD}
 
 SQL_NAME=${NS}.pgsql-dump-${PG_DB_NAME}.sql
 DB_PASSWD=${MARIADB_ROOT_PASSWORD}
-BK_CMD="mysqldump -u ${PG_USER} --password=${PG_PASSWORD} ${PG_DB_NAME} > /tmp/${SQL_NAME}"
+BK_CMD="export PGPASSWORD=${PG_PASSWORD}; pg_dump -U ${PG_USER} -F p ${PG_DB_NAME} > /tmp/${SQL_NAME}"
 
 TS=$(date +%Y%m%d_%H%M%S)
 UPLOAD_SQL_FILE=${SQL_NAME}.${TS}
