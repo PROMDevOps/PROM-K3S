@@ -47,6 +47,6 @@ curl -X POST -H 'Content-type: application/json' --data "@${TMP_TEMPLATE}" ${SLA
 
 ### cleanup ###
 echo "##### Remove local uploaded files ####"
-rm ${UPLOAD_SQL_FILE} ${TMP_TEMPLATE}
+#rm ${UPLOAD_SQL_FILE} ${TMP_TEMPLATE}
 
 echo "##### Done ####"
