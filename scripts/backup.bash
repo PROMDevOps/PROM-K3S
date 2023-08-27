@@ -35,11 +35,12 @@ echo "##### Copying backup files to cloud storage ####"
 
 mv ${SQL_NAME} ${UPLOAD_SQL_FILE}
 gsutil cp ${UPLOAD_SQL_FILE} ${BUCKET}
+FILE_SIZE=$(stat -c%s ${UPLOAD_SQL_FILE})
 
 ### slack notify ###
 cat << EOF > ${TMP_TEMPLATE}
 {
-    "text": "Done uploading files [${UPLOAD_SQL_FILE}]\n"
+    "text": "Done uploading files [${UPLOAD_SQL_FILE}], file size=[${FILE_SIZE}]\n"
 }
 EOF
 curl -X POST -H 'Content-type: application/json' --data "@${TMP_TEMPLATE}" ${SLACK_URI}
