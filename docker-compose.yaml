@@ -26,6 +26,7 @@ services:
     - 6443:6443
     - 443:32443
     - 80:32080 # For Let's Encrypt 
+    - 2022:32022 # SFTP
     logging:
       driver: "json-file"
       options: 
