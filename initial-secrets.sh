@@ -46,6 +46,9 @@ echo "  GAR_PASSWORD: $(cat "${KEY_FILE}" | base64 -w0)" >> ${TMP_FILE}
 GCS_FTP_SA=../secrets/gcs-ftp.json
 echo "  GCS_FTP_SA: $(cat "${GCS_FTP_SA}" | base64 -w0)" >> ${TMP_FILE}
 
+SFTP_SSH_PRIVATE_KEY=../secrets/sftp_id_rsa
+echo "  SFTP_SSH_PRIVATE_KEY: $(cat "${SFTP_SSH_PRIVATE_KEY}" | base64 -w0)" >> ${TMP_FILE}
+
 SETTING_FILE=.appsetting-promrub-scb.json
 echo "  APP_SETTING_SCB: $(cat "${SETTING_FILE}" | base64 -w0)" >> ${TMP_FILE}
 
