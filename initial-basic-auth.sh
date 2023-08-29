@@ -4,6 +4,7 @@ INPUT_FILE=$1
 OUTPUT_FILE=$2
 
 rm ${OUTPUT_FILE}
+touch ${OUTPUT_FILE}
 
 cat ${INPUT_FILE} | while read line
 do
