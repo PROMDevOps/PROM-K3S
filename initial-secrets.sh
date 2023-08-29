@@ -59,4 +59,9 @@ echo "  APP_SETTING_SCB: $(cat "${SETTING_FILE}" | base64 -w0)" >> ${TMP_FILE}
 SETTING_FILE=.appsetting-promjodd-carpark.json
 echo "  APP_SETTING_CARPARK_API: $(cat "${SETTING_FILE}" | base64 -w0)" >> ${TMP_FILE}
 
+SFTP_HOOK_AUTH_FILE=sftp-hook-basic-auth.txt
+./initial-basic-auth.sh ../secrets/sftp-hook-basic-auth.cfg ${SFTP_HOOK_AUTH_FILE}
+echo "  SFTP_HOOK_AUTH_FILE: $(cat "${SFTP_HOOK_AUTH_FILE}" | base64 -w0)" >> ${TMP_FILE}
+
+
 cp ${TMP_FILE} ${DST_FILE}
