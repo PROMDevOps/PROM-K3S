@@ -15,7 +15,9 @@ PG_PASSWORD=${!PG_ENV_PASSWD}
 
 SQL_NAME=${NS}.pgsql-dump-${PG_DB_NAME}.sql
 DB_PASSWD=${MARIADB_ROOT_PASSWORD}
-BK_CMD="export PGPASSWORD=${PG_PASSWORD}; pg_dump -U ${PG_USER} -F p ${PG_DB_NAME} > /tmp/${SQL_NAME}"
+BK_CMD="export PGPASSWORD=${PG_PASSWORD}; pg_dump -U ${PG_USER} -F c ${PG_DB_NAME} > /tmp/${SQL_NAME}"
+
+# To restore : pg_restore --clean --if-exists --format=custom --user=postgres --dbname=${POSTGRES_DATABASE} /tmp/erp-004-dev.sql
 
 TS=$(date +%Y%m%d_%H%M%S)
 UPLOAD_SQL_FILE=${SQL_NAME}.${TS}
