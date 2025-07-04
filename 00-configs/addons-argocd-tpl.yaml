@@ -114,6 +114,20 @@ stringData:
   #password: 'notused-because-it-is-public'
   type: git
 ---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-auth-secret-onix
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque    
+stringData:
+  url: https://github.com/wintech-thai/onix-v2-argocd-apps.git
+  #username: dummy-gh
+  #password: 'notused-because-it-is-public'
+  type: git
+---
 # Put it here to make ArgoCD knows the AlertManagerConfig
 apiVersion: argoproj.io/v1alpha1
 kind: Application
